@@ -3,7 +3,7 @@
 import { icons } from "@/lib/constant";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Download, MousePointer2 } from "lucide-react";
+import { ChevronDown, Download, MousePointer2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,6 +11,15 @@ import { IconType } from "react-icons";
 import { FaBriefcase, FaProjectDiagram } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { Button, buttonVariants } from "./ui/button";
+
+// const variants = {
+//   hidden: {
+//     opacity: 0,
+//   },
+//   visible: {
+//     opacity: 1,
+//   },
+// };
 
 const iconVariants = {
   down: {
@@ -28,9 +37,9 @@ export const Intro = () => {
   const MotionButton = motion(Button);
   const MotionLink = motion(Link);
   return (
-    <section className="grid md:grid-cols-2 gap-5 max-w-[500px] md:max-w-[900px] mx-auto">
+    <section className="grid items-center md:grid-cols-2 gap-5 max-w-[500px] md:max-w-[900px] mx-auto">
       <motion.div
-        initial={{ opacity: 0, x: -100, scale: 0.6 }}
+        initial={{ opacity: 0, x: -200, scale: 0.5 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ type: "tween" }}
         className="flex flex-col items-center sm:items-start gap-2"
@@ -66,7 +75,6 @@ export const Intro = () => {
         </p>
         <nav className="flex gap-3 mt-3">
           <MotionButton
-            variant="primary"
             className="relative rounded-full"
             whileTap={{ scale: 1.05 }}
             whileHover="up"
@@ -84,6 +92,7 @@ export const Intro = () => {
             className="relative rounded-full"
             whileTap={{ scale: 1.05 }}
             whileHover="down"
+            variant="default"
           >
             Download CV
             <DownloadIcon className="ml-2 h-4 w-4" variants={iconVariants} />
@@ -116,8 +125,9 @@ export const Intro = () => {
         </nav>
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, x: 100, scale: 0.6 }}
+        initial={{ opacity: 0, x: 200, scale: 0.5 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
+        transition={{ type: "tween", duration: 0.5 }}
         className="relative p-10"
       >
         <div className="relative w-full aspect-square">
@@ -171,6 +181,7 @@ export const Intro = () => {
           }}
         />
       </motion.div>
+      <ChevronDown className="md:col-span-2 mt-10 h-5 w-5 mx-auto animate-bounce text-theme" />
     </section>
   );
 };

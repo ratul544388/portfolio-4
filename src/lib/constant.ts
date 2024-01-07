@@ -64,6 +64,8 @@ export const MyLinkdinLink = "https://twitter.com";
 export const myFacebookLink = "https://facebook.com";
 
 export const myEmail = "ratulislam544388@gmail.com";
+export const myAddress = "Keranigonj Dhaka 1310, Bangladesh";
+export const myPhone = "+8801815555105";
 
 export const icons = [
   {
@@ -102,6 +104,8 @@ export const projects = [
       "Tanstack Query",
       "Stripe",
     ],
+    githubLink: "https://github.com/ratul544388/food-delivery-app",
+    deployedLink: "https://food-delivery-app-chi-pearl.vercel.app/",
   },
   {
     name: "Twitter Clone",
@@ -120,6 +124,8 @@ export const projects = [
       "Tanstack Query",
       "Stripe",
     ],
+    githubLink: "https://github.com/ratul544388/Twitter-clone-next-14",
+    deployedLink: "https://twitter-clone-next-14.vercel.app/",
   },
   {
     name: "Blog App",
@@ -138,6 +144,8 @@ export const projects = [
       "Tanstack Query",
       "Stripe",
     ],
+    githubLink: "https://github.com/ratul544388/blog-app",
+    deployedLink: "https://blog-app-chi-drab.vercel.app/",
   },
 ];
 

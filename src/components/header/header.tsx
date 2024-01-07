@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "sticky inset-x-0 z-50 top-0 backdrop-blur-xl border border-transparent"
+        "sticky inset-x-0 z-50 top-0 backdrop-blur-sm bg-background/80 border border-transparent"
       )}
     >
       <MaxWidthWrapper className="py-3 flex items-center justify-between">

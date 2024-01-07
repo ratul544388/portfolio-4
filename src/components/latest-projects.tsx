@@ -11,7 +11,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
-import { FramerButton } from "./framer-button";
 
 export const LatestProjects = () => {
   const MotionLink = motion(Link);
@@ -22,7 +21,9 @@ export const LatestProjects = () => {
         <p className="text-sm text-muted-foreground">
           Explore my recent web creations and innovations.
         </p>
-        <FramerButton label="All Projects" type="link" href="/projects" />
+        <MotionLink whileTap={{ scale: 1.05 }} href="/projects">
+          All Projects
+        </MotionLink>
       </div>
       <div className="col-span-9 lg:col-span-6">
         <Swiper

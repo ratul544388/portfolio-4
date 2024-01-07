@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={cn(inter.className, "flex flex-col min-h-screen")}>
+      <body className={cn(inter.className, "flex flex-col gap-10 min-h-screen")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

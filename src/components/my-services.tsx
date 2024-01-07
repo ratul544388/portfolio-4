@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 import { FiServer } from "react-icons/fi";
 import { SectionHeading } from "./section-heading";
 
-export const MyServicees = () => {
+export const MyServices = () => {
   return (
     <section className="flex flex-col items-center gap-10">
       <SectionHeading heading="My Services" />

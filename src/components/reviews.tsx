@@ -8,7 +8,7 @@ export const Reviews = () => {
   return (
     <section className="flex flex-col gap-8 items-center">
       <SectionHeading heading="Reviews" />
-      <div className="grid xs:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid xs:grid-cols-2 md:grid-cols-3 gap-6 py-2">
         {reviews.map((review) => (
           <ReviewCard {...review} key={review.username} />
         ))}
