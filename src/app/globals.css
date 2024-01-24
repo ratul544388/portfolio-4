@@ -1,6 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root,
+html,
+body {
+  height: 100%
+}
+
+:root {
+  --swiper-navigation-color: #DF3B3B;
+}
  
 @layer base {
   :root {

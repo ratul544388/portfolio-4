@@ -13,7 +13,7 @@ export const useRoutes = () => {
       label: "Projects",
       emoji: "🛠️",
       href: "/projects",
-      active: pathname.includes("projects"),
+      active: pathname === "/projects",
     },
     {
       label: "Contact",

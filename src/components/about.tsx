@@ -3,8 +3,12 @@
 import { myEmail } from "@/lib/constant";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
-import { Tabs } from "./tabs";
 import { Separator } from "./ui/separator";
+import { Button, buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { Fragment, useState } from "react";
 
 const variants = {
   hidden: {
@@ -35,6 +39,7 @@ const item = {
 };
 
 export const About = () => {
+  const params = useSearchParams();
   const personalInfoList = [
     {
       emoji: "👨‍🎓",
@@ -96,35 +101,6 @@ export const About = () => {
               </motion.div>
             ))}
           </section>
-          <div className="flex flex-col mt-3 gap-3 font-medium">
-            <h5 className="text-theme">Language Skill</h5>
-            <p>English, Bangla, hindi, Urdhu</p>
-          </div>
-        </motion.div>
-      ),
-    },
-    {
-      label: "Qualifications",
-      title: "Academic Journey",
-      description:
-        "Enthusiastic B.Sc. in CSE student, blending theory and practice for impactful contributions to the dynamic field of web development.",
-      content: (
-        <motion.div
-          initial={{ rotate: -90, transformOrigin: "bottom right" }}
-          animate={{ rotate: 0 }}
-          transition={{
-            type: "tween",
-          }}
-          className="flex flex-col gap-4"
-        >
-          <section className="grid gap-3 xs:grid-cols-2">
-            {personalInfoList.map((info) => (
-              <div key={info.label} className="flex gap-3 items-center">
-                <p>{info.emoji}</p>
-                <p className="text-muted-foreground">{info.label}</p>
-              </div>
-            ))}
-          </section>
         </motion.div>
       ),
     },
@@ -157,11 +133,77 @@ export const About = () => {
         </div>
       ),
     },
-  ];
+  ] as const;
+
+  const [active, setActive] =
+    useState<(typeof tabs)[number]["label"]>("Personal Info");
+
   return (
     <div className="flex flex-col items-center gap-6 max-w-[900px] mx-auto">
       <SectionHeading heading="About" />
-      <Tabs tabs={tabs} />
+      <div className="flex">
+        {tabs.map(({ label }) => (
+          <Button
+            variant="ghost"
+            onClick={() => setActive(label)}
+            key={label}
+            className={cn(
+              "rounded-full relative text-black",
+              active === label &&
+                "text-white hover:bg-transparent hover:text-white"
+            )}
+          >
+            {label}
+            {active === label && (
+              <motion.span
+                layoutId="activeTab"
+                className="inset-0 absolute bg-theme rounded-full -z-10"
+              />
+            )}
+          </Button>
+        ))}
+      </div>
+      {tabs.map(({ label, title, description, content }) => (
+        <Fragment key={label}>
+          {active === label && (
+            <div className="flex overflow-hidden flex-col gap-4">
+              <motion.h3
+                initial={{
+                  x: -100,
+                  opacity: 0,
+                }}
+                animate={{
+                  x: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  type: "tween",
+                }}
+                className="text-2xl text-center font-bold"
+              >
+                {title}
+              </motion.h3>
+              <motion.p
+                initial={{
+                  x: 100,
+                  opacity: 0,
+                }}
+                animate={{
+                  x: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  type: "tween",
+                }}
+                className="text-muted-foreground text-center mb-3"
+              >
+                {description}
+              </motion.p>
+              {content}
+            </div>
+          )}
+        </Fragment>
+      ))}
     </div>
   );
 };

@@ -7,13 +7,13 @@ import { useScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import { NavLinks } from "./nav-links";
 
-export const Header = () => {
+export const Navbar = () => {
   const { scrollPercentage } = useScroll();
 
   return (
     <header
       className={cn(
-        "sticky inset-x-0 z-50 top-0 backdrop-blur-sm bg-background/80 border border-transparent"
+        "fixed inset-x-0 z-50 top-0 backdrop-blur-sm bg-background/80 border border-transparent"
       )}
     >
       <MaxWidthWrapper className="py-3 flex items-center justify-between">

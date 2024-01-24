@@ -15,26 +15,25 @@ interface TabsProps {
 }
 
 export const Tabs = ({ tabs }: TabsProps) => {
-  const [active, setAcitve] = useState(0);
+  const [active, setActive] = useState(0);
   return (
     <div className="flex flex-col items-center gap-6">
       <div className="flex border shadow rounded-full">
         {tabs.map((tab, index) => (
           <Button
-            onClick={() => setAcitve(index)}
             variant="ghost"
-            key={tab.label}
+            onClick={() => setActive(index)}
+            key={index}
             className={cn(
-              "relative px-5 py-2.5 rounded-full",
-              active === index &&
-                "text-white hover:bg-transparent hover:text-white"
+              "rounded-full relative",
+              active && "text-white hover:bg-transparent hover:text-white"
             )}
           >
-            {tab.label}
-            {active === index && (
+            {/* {tab} */}
+            {active && (
               <motion.span
-                layoutId="activeTab"
-                className="absolute -z-10 rounded-full inset-0 bg-theme"
+                layoutId="activeFAQ"
+                className="inset-0 absolute bg-primary rounded-full -z-10"
               />
             )}
           </Button>

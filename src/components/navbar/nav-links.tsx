@@ -22,7 +22,7 @@ export const NavLinks = () => {
           {route.label}
           {route.active && (
             <motion.span
-              layoutId="fjsdklfjsdfjsdkfjdsfsdfjdfkdsfjsdkfjsdkfjsdkfsdkfjd"
+              layoutId="activeNavLink"
               className="w-full h-[3.5px] bg-theme rounded-full absolute -bottom-0.5"
             />
           )}

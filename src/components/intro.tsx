@@ -44,7 +44,7 @@ export const Intro = () => {
         transition={{ type: "tween" }}
         className="flex flex-col items-center sm:items-start gap-2"
       >
-        <p className="text-theme text-sm font-medium tracking-widest">
+        <p className="text-theme font-light tracking-widest">
           WEB DEVELOPER
         </p>
         <h1 className="font-bold text-4xl text-center sm:text-start leading-[3rem]">

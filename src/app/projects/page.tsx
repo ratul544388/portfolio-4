@@ -5,7 +5,7 @@ import React from "react";
 
 const ProjectsPage = () => {
   return (
-    <MaxWidthWrapper className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 py-2">
+    <MaxWidthWrapper className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 py-5">
       {projects.map((project) => (
         <ProjectCard {...project} key={project.name} />
       ))}
