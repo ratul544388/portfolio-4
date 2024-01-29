@@ -61,10 +61,7 @@ const Page = ({ params }: { params: { project_name: string } }) => {
           {project.name}
         </h3>
         <p className="text-sm text-center font-semibold text-muted-foreground">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum itaque
-          delectus pariatur debitis odit molestiae, minima repellendus
-          temporibus tempora animi quod adipisci voluptatibus blanditiis, hic
-          alias voluptas vero ipsa dicta.
+          {project.description}
         </p>
         <Separator />
         <section className="grid lg:grid-cols-2 gap-12 font-semibold space-y-1">

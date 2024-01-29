@@ -5,10 +5,19 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export const Footer = () => {
   const MotionLink = motion(Link);
   const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, [])
+
+  if(!isMounted) {
+    return null;
+  }
   return (
     <footer className="mt-20">
       {pathname !== "/contact" && (

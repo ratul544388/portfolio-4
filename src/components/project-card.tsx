@@ -17,7 +17,6 @@ interface ProjectCardProps {
   description: string;
   features: string[];
   images: string[];
-  createdAt: string;
   technologies: string[];
   githubLink: string;
   deployedLink: string;
@@ -29,7 +28,6 @@ export const ProjectCard = ({
   description,
   features,
   images,
-  createdAt,
   technologies,
   githubLink,
   deployedLink,
@@ -74,9 +72,6 @@ export const ProjectCard = ({
       <div className="bg-background flex flex-col h-full gap-2 p-6 pb-8 pt-7 rounded-t-xl">
         <div className="flex flex-col items-center sm:flex-row md:flex-col xl:flex-row gap-y-1 gap-x-3">
           <h3 className="text-xl font-bold">{name}</h3>
-          <p className="text-muted-foreground text-xs text-theme">
-            {createdAt}
-          </p>
         </div>
         <div className="relative text-sm text-muted-foreground line-clamp-3">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam

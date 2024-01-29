@@ -93,7 +93,7 @@ export const About = () => {
           }}
           className="flex flex-col gap-4"
         >
-          <section className="grid gap-3 xs:grid-cols-2">
+          <section className="grid gap-3 sm:grid-cols-2">
             {personalInfoList.map((info) => (
               <motion.div key={info.label} className="flex gap-3 items-center">
                 <p>{info.emoji}</p>
@@ -148,7 +148,7 @@ export const About = () => {
             onClick={() => setActive(label)}
             key={label}
             className={cn(
-              "rounded-full relative text-black",
+              "rounded-full relative",
               active === label &&
                 "text-white hover:bg-transparent hover:text-white"
             )}
