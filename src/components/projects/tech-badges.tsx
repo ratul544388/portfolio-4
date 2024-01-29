@@ -23,7 +23,7 @@ export const TechBadges = ({ technologies }: TechBadgesProps) => {
       ref={ref}
       variants={{
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+        visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
       }}
       initial="hidden"
       animate={control}
@@ -33,7 +33,7 @@ export const TechBadges = ({ technologies }: TechBadgesProps) => {
         <motion.div
           ref={ref}
           variants={{
-            hidden: { opacity: 0, y: 50 },
+            hidden: { opacity: 0, y: 40 },
             visible: { opacity: 1, y: 0 },
           }}
           key={item}
