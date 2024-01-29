@@ -3,7 +3,7 @@
 import { useRoutes } from "@/hooks/use-routes";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const NavLinks = () => {
   const routes = useRoutes();
@@ -20,12 +20,17 @@ export const NavLinks = () => {
           )}
         >
           {route.label}
-          {route.active && (
-            <motion.span
-              layoutId="activeNavLink"
-              className="w-full h-[3.5px] bg-theme rounded-full absolute -bottom-0.5"
-            />
-          )}
+          <AnimatePresence>
+            {route.active && (
+              <motion.span
+                key={route.label}
+                initial={{ height: 0 }}
+                animate={{ height: "3.5px" }}
+                exit={{ height: 0 }}
+                className="w-full bg-theme rounded-full absolute -bottom-0.5"
+              />
+            )}
+          </AnimatePresence>
         </Link>
       ))}
     </nav>

@@ -1,6 +1,6 @@
 import { About } from "@/components/about";
 import { Intro } from "@/components/intro";
-import { LatestProjects } from "@/components/latest-projects";
+import { LatestProjects } from "@/components/projects/latest-projects";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { MyServices } from "@/components/my-services";
 import { Reviews } from "@/components/reviews";

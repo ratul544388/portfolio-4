@@ -8,6 +8,6 @@ export const ContactSchema = z.object({
   email: z.string().email({ message: "Please enter your valid email address" }),
   message: z
     .string()
-    .min(10, { message: "Field must contain 10 to 1000 characters" })
+    .min(3, { message: "Message is too short" })
     .max(1000, { message: "Field must contain 10 to 1000 characters" }),
 });

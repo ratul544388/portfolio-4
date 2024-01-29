@@ -4,21 +4,25 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { sendEmail } from "@/actions/send-email";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ContactSchema } from "@/schemas";
+import { motion } from "framer-motion";
+import { MousePointer2 } from "lucide-react";
+import { useTransition } from "react";
 import { Textarea } from "./ui/textarea";
+import { toast } from "react-toastify";
 
 export const ContactForm = () => {
+  const [isPending, startTransition] = useTransition();
   const FramerButton = motion(Button);
   const form = useForm<z.infer<typeof ContactSchema>>({
     resolver: zodResolver(ContactSchema),
@@ -29,10 +33,19 @@ export const ContactForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof ContactSchema>) {
-    console.log(values);
+    startTransition(() => {
+      sendEmail(values).then(({ error, success }) => {
+        if (success) {
+          toast.success(success);
+          form.reset();
+        } else if (error) {
+          toast.error(error);
+        }
+      });
+    });
   }
+
   return (
     <Form {...form}>
       <form
@@ -75,7 +88,10 @@ export const ContactForm = () => {
             </FormItem>
           )}
         />
-        <FramerButton className="ml-auto">Submit</FramerButton>
+        <Button className="ml-auto" disabled={isPending}>
+          Submit
+          <MousePointer2 className="h-4 w-4 ml-2 rotate-[135deg]" />
+        </Button>
       </form>
     </Form>
   );

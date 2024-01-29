@@ -90,7 +90,8 @@ export const projects = [
   {
     name: "Full Stack Gym, Admin & User Portal",
     slug: "gym-admin-and-user-portal",
-    description: "Food Delivery app description",
+    description:
+      "This project is mainly focused on gym admin management. However, it has a few functionalities for users such as enrolling in a gym membership plan and accessing a Frequently Asked Questions page where they can read FAQs and ask their own questions.",
     images: [
       "/images/projects/gym/gym-1.png",
       "/images/projects/gym/gym-2.png",

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import { ToastProvider } from "@/providers/toast-provider";
 
 const font = Sora({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ToastProvider />
           <Navbar />
           <main className="min-h-screen pt-24">{children}</main>
           <Footer />

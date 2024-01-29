@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionHeading } from "./section-heading";
+import { SectionHeading } from "../section-heading";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { projects } from "@/lib/constant";
 import { ProjectCard } from "./project-card";
@@ -43,14 +43,17 @@ export const LatestProjects = () => {
           navigation={true}
           pagination={{ clickable: true }}
         >
-          {projects.map((project, index) => (
-            <div className="flex items-center gap-2 h-full" key={index}>
-              <SwiperSlide className="p-3 py-5">
-                <ProjectCard {...project} />
-              </SwiperSlide>
-              <Button className="absolute z-50">Next</Button>
-            </div>
-          ))}
+          {projects
+            .reverse()
+            .slice(3)
+            .map((project, index) => (
+              <div className="flex items-center gap-2 h-full" key={index}>
+                <SwiperSlide className="p-3 py-5">
+                  <ProjectCard {...project} />
+                </SwiperSlide>
+                <Button className="absolute z-50">Next</Button>
+              </div>
+            ))}
         </Swiper>
       </div>
     </section>

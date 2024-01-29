@@ -1,5 +1,5 @@
 import MaxWidthWrapper from "@/components/max-width-wrapper";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectCard } from "@/components/projects/project-card";
 import { projects } from "@/lib/constant";
 import React from "react";
 

@@ -1,15 +1,14 @@
 "use client";
 
-import { animate, motion, useAnimation } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
-import { useState } from "react";
+import Link from "next/link";
+import { IconType } from "react-icons";
 import { FaGithub } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
-import { Button, buttonVariants } from "./ui/button";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { IconType } from "react-icons";
+import { buttonVariants } from "../ui/button";
+import { TechBadges } from "./tech-badges";
 
 interface ProjectCardProps {
   name: string;
@@ -70,16 +69,9 @@ export const ProjectCard = ({
         </div>
       </div>
       <div className="bg-background flex flex-col h-full gap-2 p-6 pb-8 pt-7 rounded-t-xl">
-        <div className="flex flex-col items-center sm:flex-row md:flex-col xl:flex-row gap-y-1 gap-x-3">
-          <h3 className="text-xl font-bold">{name}</h3>
-        </div>
+        <h3 className="text-xl font-bold text-center">{name}</h3>
         <div className="relative text-sm text-muted-foreground line-clamp-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-          recusandae voluptatibus ab. Commodi quis fugiat ea dolore vitae quam
-          officia ad ex laudantium iste? Fuga velit doloribus deleniti deserunt
-          fugiat Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Suscipit vel labore libero, assumenda adipisci asperiores
-          perspiciatis?
+          {description}
           <Link
             href={`projects/${slug}`}
             className="absolute right-0 left-1/2 bg-background underline font-semibold text-theme transition-colors cursor-pointer h-5 bottom-0 pl-2"
@@ -87,13 +79,7 @@ export const ProjectCard = ({
             More details...
           </Link>
         </div>
-        <div className="flex gap-3 mt-3 flex-wrap justify-center">
-          {technologies.map((item) => (
-            <Badge key={item} variant="secondary">
-              {item}
-            </Badge>
-          ))}
-        </div>
+        <TechBadges technologies={technologies} />
         <div className="flex gap-4 justify-center mt-3 xs:hidden">
           <Link
             href={deployedLink}
