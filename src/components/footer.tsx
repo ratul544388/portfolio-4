@@ -25,7 +25,7 @@ export const Footer = () => {
           <h3 className="text-2xl font-bold text-center max-w-[430px]">
             Prepared to turn your ideas into reality? I&apos;m here to help
           </h3>
-          <MotionLink href="/contact" className={buttonVariants({})}>
+          <MotionLink href="/contact" className={buttonVariants()}>
             Contact me
           </MotionLink>
         </div>

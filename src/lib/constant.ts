@@ -56,12 +56,11 @@ export const technoloties = [
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 
-export const domain = "RocketPortfolios.com";
-
-export const myTwitterLink = "https://twitter.com";
-export const myGithubLink = "https://twitter.com";
-export const MyLinkdinLink = "https://twitter.com";
-export const myFacebookLink = "https://facebook.com";
+export const myTwitterLink = "https://twitter.com/Ratul2582";
+export const myGithubLink = "https://github.com/ratul544388";
+export const MyLinkdinLink =
+  "https://www.linkedin.com/in/ratul-islam-a0774521a/";
+export const myFacebookLink = "https://www.facebook.com/ratul544388";
 
 export const myEmail = "ratulislam544388@gmail.com";
 export const myAddress = "Keranigonj Dhaka 1310, Bangladesh";
