@@ -12,10 +12,8 @@ import { TechBadges } from "./tech-badges";
 
 interface ProjectCardProps {
   name: string;
-  slug: string;
   description: string;
-  features: string[];
-  images: string[];
+  image: string;
   technologies: string[];
   githubLink: string;
   deployedLink: string;
@@ -23,10 +21,8 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({
   name,
-  slug,
   description,
-  features,
-  images,
+  image,
   technologies,
   githubLink,
   deployedLink,
@@ -53,7 +49,7 @@ export const ProjectCard = ({
     >
       <div className="p-6 pb-0">
         <div className="relative w-full aspect-video flex items-center justify-center">
-          <Image src={images[0]} alt={name} fill className="rounded-lg" />
+          <Image src={image} alt={name} fill className="rounded-lg" />
           <motion.div
             variants={{
               initial: { opacity: 0, scale: 0 },
@@ -63,46 +59,43 @@ export const ProjectCard = ({
             animate={animation}
             className="hidden sm:flex gap-3 absolute "
           >
-            <AnimatedButton href={githubLink} icon={FaGithub} />
-            <AnimatedButton href={deployedLink} icon={TbWorld} />
+            <AnimatedButton
+              href={githubLink}
+              icon={FaGithub}
+              variant="secondary"
+              size="icon"
+            />
+            <AnimatedButton
+              href={deployedLink}
+              icon={TbWorld}
+              variant="secondary"
+              size="icon"
+            />
           </motion.div>
         </div>
       </div>
       <div className="bg-background flex flex-col h-full gap-2 p-6 pb-8 pt-7 rounded-t-xl">
         <h3 className="text-xl font-bold text-center">{name}</h3>
-        <div className="relative text-sm text-muted-foreground line-clamp-3">
+        <p className="relative text-sm text-muted-foreground line-clamp-4">
           {description}
-          <Link
-            href={`projects/${slug}`}
-            className="absolute right-0 left-1/2 bg-background underline font-semibold text-theme transition-colors cursor-pointer h-5 bottom-0 pl-2"
-          >
-            More details...
-          </Link>
-        </div>
+        </p>
         <TechBadges technologies={technologies} />
-        <div className="flex gap-4 justify-center mt-3 xs:hidden">
-          <Link
+        <span className="mt-auto"/>
+        <div className="flex gap-6 justify-center mt-3">
+          <AnimatedButton
+            label="Live Demo"
             href={deployedLink}
-            target="_blank"
-            className={cn(
-              buttonVariants({ variant: "default" }),
-              "min-w-[40px]"
-            )}
-          >
-            <TbWorld className="h-4 w-4 mr-2" />
-            Live Demo
-          </Link>
-          <Link
+            icon={TbWorld}
+            variant="secondary"
+            className="w-full"
+          />
+          <AnimatedButton
+            label="Git Repo"
             href={githubLink}
-            target="_blank"
-            className={cn(
-              buttonVariants({ variant: "secondary" }),
-              "min-w-[40px]"
-            )}
-          >
-            <FaGithub className="h-4 w-4 mr-2" />
-            Git Repo
-          </Link>
+            icon={FaGithub}
+            variant="secondary"
+            className="w-full"
+          />
         </div>
       </div>
     </motion.div>
@@ -112,25 +105,33 @@ export const ProjectCard = ({
 const AnimatedButton = ({
   href,
   icon: Icon,
+  size = "default",
+  variant = "default",
+  label,
+  className,
 }: {
   href: string;
   icon: IconType;
+  variant?: "default" | "secondary";
+  size?: "default" | "icon";
+  label?: string;
+  className?: string;
 }) => {
   const MotionLink = motion(Link);
-  const animation = useAnimation();
-
   return (
     <MotionLink
       href={href}
       target="_blank"
       className={cn(
-        buttonVariants({ variant: "secondary", size: "icon" }),
-        "min-w-[40px] relative overflow-hidden hover:text-slate-200"
+        buttonVariants({ variant, size }),
+        "relative overflow-hidden gap-3 hover:text-slate-200",
+        className
       )}
       initial="initial"
       whileHover="animate"
     >
       <Icon className="h-6 w-6 z-10" />
+      {label && <span className="z-20">{label}</span>}
       <motion.span
         variants={{
           initial: { y: "100%", x: "50%" },

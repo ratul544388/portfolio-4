@@ -43,17 +43,14 @@ export const LatestProjects = () => {
           navigation={true}
           pagination={{ clickable: true }}
         >
-          {projects
-            .reverse()
-            .slice(3)
-            .map((project, index) => (
-              <div className="flex items-center gap-2 h-full" key={index}>
-                <SwiperSlide className="p-3 py-5">
-                  <ProjectCard {...project} />
-                </SwiperSlide>
-                <Button className="absolute z-50">Next</Button>
-              </div>
-            ))}
+          {projects.slice(0, 3).map((project, index) => (
+            <div className="flex items-center gap-2 h-full" key={index}>
+              <SwiperSlide className="p-3 py-5">
+                <ProjectCard {...project} />
+              </SwiperSlide>
+              <Button className="absolute z-50">Next</Button>
+            </div>
+          ))}
         </Swiper>
       </div>
     </section>

@@ -27,7 +27,7 @@ export const TechBadges = ({ technologies }: TechBadgesProps) => {
       }}
       initial="hidden"
       animate={control}
-      className="flex gap-3 mt-3 flex-wrap justify-center"
+      className="flex gap-3 flex-wrap justify-center"
     >
       {technologies.map((item) => (
         <motion.div
