@@ -124,7 +124,7 @@ export const projects = [
       "Stripe",
     ],
     githubLink: "https://github.com/ratul544388/Twitter-clone-next-14",
-    deployedLink: "https://twitter-clone-next-14.vercel.app/",
+    deployedLink: "https://twitter-clone-next-14.vercel.app",
   },
   {
     name: "Food Delivery App",
